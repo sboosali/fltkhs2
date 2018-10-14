@@ -1,3 +1,8 @@
+dist/
+dist-*/
+.ghc.environment.*
+*.project.local
+
 result
 *.a
 *.o

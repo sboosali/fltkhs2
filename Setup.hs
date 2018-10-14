@@ -178,7 +178,8 @@ fltkVersion version =
   in (major, minor, patch)
 
 flagIsSet :: PD.FlagName -> ConfigFlags -> Bool
-flagIsSet flag configFlags = maybe False id (lookup flag (configConfigurationsFlags configFlags))
+flagIsSet flag configFlags =
+  maybe False id (lookup flag (configConfigurationsFlags configFlags))
 
 addFltkcDir :: PackageDescription -> PackageDescription
 addFltkcDir pkg_descr =

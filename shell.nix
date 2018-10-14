@@ -53,13 +53,17 @@ let
   flags = { cabalFlags = { inherit demo opengl; }; };
           # same names/defaults as the `.cabal` flags
 
+  dependencies = { inherit (pkgs) freeglut; };
+
   f = import ./default.nix;
 
   haskellPackages = if compiler == "default"
                        then pkgs.haskellPackages
                        else pkgs.haskell.packages.${compiler};
 
-  drv = haskellPackages.callPackage f flags;
+  drv = haskellPackages.callPackage f {};
+      # dependencies;
+      # (flags // dependencies);
 
 in
 
